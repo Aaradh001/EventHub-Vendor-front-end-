@@ -32,11 +32,6 @@ export default function ServicesModal({ setOtherServices, ...props }) {
                 props.setParentState2(response.data.all_available_services);
                 setShowModal(false);
                 TSuccess("Services added !!")
-                // Handle success
-                // console.log('Service removed successfully');
-                // setServices(response.data.selected_services)
-                // setAvailableServices(response.data.all_available_services)
-                // TSuccess("Service removed successfully !!")
             })
             .catch(error => {
                 // Handle error
@@ -44,13 +39,11 @@ export default function ServicesModal({ setOtherServices, ...props }) {
                 setShowModal(false);
                 TError("Error ")
             });
-
     }
     function handleServiceSelect(event) {
         const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
         setSelectedValues(selectedOptions);
     }
-
 
     return (
         <>
@@ -114,14 +107,14 @@ export default function ServicesModal({ setOtherServices, ...props }) {
 
                                     <Accordion
                                         title={"Add a new service"}
-                                        data={<AddServiceForm accordianControl={setIsOpen} modalControl={setShowModal} setOtherServices={setOtherServices}/>}
+                                        data={<AddServiceForm accordianControl={setIsOpen} modalControl={setShowModal} setOtherServices={setOtherServices} />}
                                         isOpen={isOpen}
-                                            toggleAccordion={() => setIsOpen((prev) => !prev)}
-                                        />
+                                        toggleAccordion={() => setIsOpen((prev) => !prev)}
+                                    />
 
 
                                     { }
-                                        {/* {props.component} */}
+                                    {/* {props.component} */}
                                 </div>
                                 {/*footer*/}
                                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
