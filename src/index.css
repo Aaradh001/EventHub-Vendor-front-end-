@@ -1,0 +1,16 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.flow-runner {
+    font-style: italic;
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 500;
+    color: black;
+}
+.kotta-one-regular {
+    font-family: "Kotta One", serif;
+    font-weight: 600;
+    font-style: normal;
+    color: black;
+  }
