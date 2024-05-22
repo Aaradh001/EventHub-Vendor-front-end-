@@ -247,7 +247,7 @@ function Profile() {
             {/* Left Side */}
             <div className="w-full md:w-3/12 md:mr-2">
               {/* Profile Card */}
-              <div className="h-full flex flex-col items-center p-3 bg-white p-3 border-t-4 border-green-400">
+              <div className="h-full flex flex-col items-center bg-white p-3 border-t-4 border-green-400">
                 <div className=" border h-40 w-40 border-gray-500 flex max-w-xs md:max-w-xs overflow-hidden sm:rounded-full">
                   <img className="h-auto w-full mx-auto"
                     src={userDetails.logo ? userDetails.logo : userImg}
