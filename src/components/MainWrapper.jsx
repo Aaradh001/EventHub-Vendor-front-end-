@@ -17,6 +17,7 @@ import CarouselComponent from "./subFeatureComponents/Carousel";
 import { Bounce, ToastContainer } from 'react-toastify';
 import DashboardLayout from "./DashboardLayout";
 import MyServices from "../pages/vendor/vendorDashboardPages/MyServices";
+import EventDetails from "../pages/events/EventDetails";
 
 function MainWrapper() {
   const dispatch = useDispatch();
@@ -89,6 +90,7 @@ function MainWrapper() {
         <Route path="register" element={<Register />}></Route>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="event/" element={<PrivateRoute> < EventDetails/> </PrivateRoute>} />
           <Route path="dashboard/" element={<PrivateRoute> <DashboardLayout /> </PrivateRoute>}>
             <Route index path="my-account" element={<Profile />} />
             <Route path="my-services" element={<MyServices />} />

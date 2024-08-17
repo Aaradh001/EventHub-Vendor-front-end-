@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 import CarouselComponent from "../../components/subFeatureComponents/Carousel";
@@ -8,6 +8,9 @@ import { Card } from "flowbite-react";
 
 
 import EventList from "../../components/subComponents/Home/EventList";
+import axios from "axios";
+import { BASE_URL } from "../../constants/constants";
+import { TError } from "../../components/subFeatureComponents/Toastify";
 
 function Home() {
   const authentication_user = useSelector((state) => state.authentication_user);
@@ -15,6 +18,27 @@ function Home() {
   // const slides = [
   //   bgLogin, homeBg, regBg
   // ]
+  const [events, setEvents] = useState([]);
+  const token = localStorage.getItem("access");
+  const baseURL = BASE_URL;
+
+
+  useEffect(() => {
+    axios.get(baseURL + "event/events",{headers: {
+        "Content-type": "application/json",
+        authorization: `Bearer ${token}`,
+        Accept: "application/json",
+
+      },}).then((data) => {
+        console.log(data);
+        let response = data.data.results.results;
+        setVendorList(response);
+        setTempVendorList(response);
+    }).catch((err) => {
+        console.log(err);
+        TError("Data fetching failer")
+    })
+}, [])
   return (
     <>
       <section className="h-fit w-full bg-gray-50">
@@ -55,6 +79,7 @@ function Home() {
                 borderRight: "0"
               }}></div>
             </div>
+
             <EventList />
             <EventList />
           </div>
